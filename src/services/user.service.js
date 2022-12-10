@@ -18,4 +18,9 @@ const createUser = async (displayName, email, password, image = null) => {
   return { type: 409, message: 'User already registered' };
 };
 
-module.exports = { createUser };
+const usersList = async () => {
+  const allUsers = await User.findAll();
+  return allUsers;
+};
+
+module.exports = { createUser, usersList };
