@@ -12,13 +12,21 @@ const UserSchema = (sequelize, dataTypes) => {
     password: dataTypes.STRING,
     image: dataTypes.STRING,
   },
-  {
-    timestamps: false,
-    underscored: true,
-  }
+    {
+      timestamps: false,
+      underscored: true,
+    }
   );
 
-return User;
+  User.associate = ({ BlogPost }) => {
+    User.hasMany(BlogPost, {
+      as: 'blogPost',
+      through: User,
+      foreignKey: 'user_id',
+    });
+  };
+
+  return User;
 }
 
 module.exports = UserSchema;
