@@ -11,10 +11,10 @@ const displayNameValidate = (req, res, next) => {
 const emailValidate = (req, res, next) => {
   const { email } = req.body;
   const emailFormat = email.split('@');
-  if (emailFormat.length === 2) {
+  if (emailFormat.length === 2 && emailFormat[0].length > 0 && emailFormat[1].length > 0) {
     return next();
   }
-  res.status(400).json({
+  return res.status(400).json({
     message: '"email" must be a valid email',
   });
 };
