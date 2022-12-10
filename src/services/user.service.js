@@ -23,4 +23,12 @@ const usersList = async () => {
   return allUsers;
 };
 
-module.exports = { createUser, usersList };
+const getUserById = async (id) => {
+  const user = await User.findAll({ where: { id: Number(id) } });
+  if (user.length === 1) {
+    return ({ user });
+  }
+  return ({ type: 404 });
+};
+
+module.exports = { createUser, usersList, getUserById };

@@ -2,7 +2,7 @@ const express = require('express');
 
 const router = express.Router();
 
-const { userPost, getAllUsers } = require('../controllers/user.controller');
+const { userPost, getAllUsers, getUser } = require('../controllers/user.controller');
 
 const {
   displayNameValidate, emailValidate, passwordValidate,
@@ -22,6 +22,12 @@ router.get(
   '/',
   tokenValidation,
   getAllUsers,
+);
+
+router.get(
+  '/:id',
+  tokenValidation,
+  getUser,
 );
 
 module.exports = router;
