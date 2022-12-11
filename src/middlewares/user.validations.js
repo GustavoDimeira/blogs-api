@@ -29,16 +29,6 @@ const passwordValidate = (req, res, next) => {
   });
 };
 
-const idValidation = (req, res, next) => {
-  const { params: { id } } = req;
-
-  const test = isNaN(id);
-  if (!test) {
-    return next();
-  }
-  return res.status(400).json({ mesage: '"id" must be a number' });
-};
-
 module.exports = {
-  displayNameValidate, emailValidate, passwordValidate, idValidation,
+  displayNameValidate, emailValidate, passwordValidate,
 };
