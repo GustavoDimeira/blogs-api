@@ -2,13 +2,7 @@ const {
   createUser, usersList, getUserById,
 } = require('../services/user.service');
 
-const removePassword = (array) => {
-  const result = array.map((user) => {
-    const { id, displayName, email, image } = user;
-    return { id, displayName, email, image };
-  }, []);
-  return result;
-};
+const { removePassword } = require('../utilitis');
 
 const userPost = async (req, res) => {
   const { displayName, email, password, image } = req.body;

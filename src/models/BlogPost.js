@@ -30,6 +30,6 @@ const BlogPostSchema = (sequelize, dataTypes) => {
   };
 
   return BlogPost;
-}
+};
 
 module.exports = BlogPostSchema;
