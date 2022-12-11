@@ -1,13 +1,17 @@
 const express = require('express');
 
 const app = express();
-const { loginRouter, userRouter } = require('./routers');
+const {
+  loginRouter, userRouter, categoriesRouter,
+} = require('./routers');
 
 app.use(express.json());
 
 app.use('/login', loginRouter);
 
 app.use('/user', userRouter);
+
+app.use('/categories', categoriesRouter);
 
 // É importante exportar a constante `app`,
 // para que possa ser utilizada pelo arquivo `src/server.js`
