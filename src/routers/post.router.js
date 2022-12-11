@@ -12,4 +12,10 @@ router.get(
   getPosts,
 );
 
+router.get(
+  '/:id',
+  tokenValidation,
+  getPosts,
+);
+
 module.exports = router;

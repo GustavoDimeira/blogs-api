@@ -5,7 +5,7 @@ const router = express.Router();
 const { userPost, getAllUsers, getUser } = require('../controllers/user.controller');
 
 const {
-  displayNameValidate, emailValidate, passwordValidate,
+  displayNameValidate, emailValidate, passwordValidate, idValidation,
 } = require('../middlewares/user.validations');
 
 const { tokenValidation } = require('../middlewares/token.validations');
@@ -27,6 +27,7 @@ router.get(
 router.get(
   '/:id',
   tokenValidation,
+  idValidation,
   getUser,
 );
 

@@ -13,6 +13,7 @@ const verifyToken = (authorization) => {
 };
 
 const tokenValidation = (req, res, next) => {
+  // return next();
   const { headers: { authorization } } = req;
   if (!authorization) {
     return res.status(401).json({ message: 'Token not found' });
